@@ -54,25 +54,35 @@ async def seed():
             db.add(m)
         await db.flush()
 
+        CDN = "https://res.cloudinary.com/dyzceol3b/image/upload"
+
         # ── Stores (UUID) ─────────────────────────────────────────
         s1_id = uid(); s2_id = uid(); s3_id = uid(); s4_id = uid()
         stores = [
             Store(id=s1_id, owner_id=m1_id, name="بوتيك الأميرة",
                   description="أجمل فساتين السهرات والمناسبات في دمشق",
                   city="دمشق", address="المالكي، شارع الجلاء",
-                  phone="+963991111111", is_verified=True, is_active=True),
+                  phone="+963991111111", is_verified=True, is_active=True,
+                  logo_url=f"{CDN}/femora/logo.png",
+                  cover_url=f"{CDN}/femora/stores/clothing.jpg"),
             Store(id=s2_id, owner_id=m2_id, name="دار الجمال",
                   description="عطور وعناية ومكياج من أفخم الماركات",
                   city="دمشق", address="أبو رمانة",
-                  phone="+963992222222", is_verified=True, is_active=True),
+                  phone="+963992222222", is_verified=True, is_active=True,
+                  logo_url=f"{CDN}/femora/logo.png",
+                  cover_url=f"{CDN}/femora/stores/makeup.jpg"),
             Store(id=s3_id, owner_id=m3_id, name="أناقة دمشق",
                   description="حقائب ومجوهرات بتضيف لمسة أناقة لإطلالتك",
                   city="دمشق", address="الشعلان",
-                  phone="+963993333333", is_verified=False, is_active=True),
+                  phone="+963993333333", is_verified=False, is_active=True,
+                  logo_url=f"{CDN}/femora/logo.png",
+                  cover_url=f"{CDN}/femora/stores/accessories.jpg"),
             Store(id=s4_id, owner_id=m4_id, name="لمسة أنثى",
                   description="بلوزات وتنانير وكاجوال راقي للمرأة العصرية",
                   city="دمشق", address="المزة، فيلات شرقية",
-                  phone="+963994444444", is_verified=True, is_active=True),
+                  phone="+963994444444", is_verified=True, is_active=True,
+                  logo_url=f"{CDN}/femora/logo.png",
+                  cover_url=f"{CDN}/femora/stores/clothing.jpg"),
         ]
         for s in stores:
             db.add(s)
@@ -95,7 +105,7 @@ async def seed():
                 "name": "فستان سهرة مخمل",
                 "description": "فستان سهرة طويل من المخمل الناعم، قصته بتبين الخصر وبتنزل واسعة بشكل أنيق.",
                 "base_price": 7500, "original_price": 9500,
-                "image": "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=500",
+                "image": f"{CDN}/femora/products/dress.jpg",
                 "variants": [
                     {"color": "بنفسجي", "color_hex": "#7B2D8B", "size": "S",  "stock": 3},
                     {"color": "بنفسجي", "color_hex": "#7B2D8B", "size": "M",  "stock": 5},
@@ -119,7 +129,7 @@ async def seed():
                 "name": "حقيبة يد جلد طبيعي",
                 "description": "حقيبة يد من الجلد الطبيعي بحجم عملي، خياطة متينة وتفاصيل أنيقة.",
                 "base_price": 4800, "original_price": None,
-                "image": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500",
+                "image": f"{CDN}/femora/products/bag.jpg",
                 "variants": [
                     {"color": "بيج",  "color_hex": "#F5F5DC", "size": "one-size", "stock": 10},
                     {"color": "أسود", "color_hex": "#000000", "size": "one-size", "stock": 7},
@@ -131,7 +141,7 @@ async def seed():
                 "name": "باليت ظلال العيون",
                 "description": "باليت ظلال عيون بدرجات دافئة، تركيبة ناعمة بتمدد بسهولة وبتثبت طويل.",
                 "base_price": 2200, "original_price": 2900,
-                "image": "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=500",
+                "image": f"{CDN}/femora/products/lipstick.jpg",
                 "variants": [
                     {"color": "درجات دافئة", "color_hex": "#C4813A", "size": "one-size", "stock": 15},
                 ],
@@ -142,7 +152,7 @@ async def seed():
                 "name": "بلوزة حرير ناعمة",
                 "description": "بلوزة من الحرير الناعم بقصة واسعة شوي ومريحة، لمسة أنيقة لإطلالتك اليومية.",
                 "base_price": 2900, "original_price": None,
-                "image": "https://images.unsplash.com/photo-1551163943-3f6a855d1153?w=500",
+                "image": f"{CDN}/femora/products/blouse.jpg",
                 "variants": [
                     {"color": "وردي",   "color_hex": "#FFB6C1", "size": "S", "stock": 8},
                     {"color": "وردي",   "color_hex": "#FFB6C1", "size": "M", "stock": 6},
@@ -162,7 +172,7 @@ async def seed():
                 "name": "عقد لؤلؤ كلاسيك",
                 "description": "عقد لؤلؤ كلاسيكي بيضيف لمسة رقيقة وأنيقة لأي إطلالة.",
                 "base_price": 1750, "original_price": 2300,
-                "image": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=500",
+                "image": f"{CDN}/femora/products/necklace.jpg",
                 "variants": [
                     {"color": "أبيض لؤلؤي", "color_hex": "#F8F8FF", "size": "one-size", "stock": 2},
                 ],
@@ -173,7 +183,7 @@ async def seed():
                 "name": "عطر زهري فاخر",
                 "description": "عطر زهري أنثوي فخم بنفحات ورد ولمسة دافئة، ثباته طويل.",
                 "base_price": 4100, "original_price": None,
-                "image": "https://images.unsplash.com/photo-1541643600914-78b084683702?w=500",
+                "image": f"{CDN}/femora/products/perfume.jpg",
                 "variants": [
                     {"color": "90 مل", "color_hex": "#FFD700", "size": "one-size", "stock": 20},
                 ],

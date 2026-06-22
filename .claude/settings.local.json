@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(ls \"E:/امل/2026/لك/Femora/Femora2 \\(8\\)/\")",
-      "Read(//e/امل/2026/لك/Femora/Femora2 \\(8\\)/**)"
-    ]
-  }
-}
